@@ -259,53 +259,7 @@ const style=document.createElement('style');
 style.textContent='@keyframes ripple{to{transform:translate(-50%,-50%) scale(120);opacity:0;}}';
 document.head.appendChild(style);
 
-/* ══════ PAGE LOADER ══════ */
-(function(){
-  const loader=document.createElement('div');
-  loader.id='page-loader';
-  loader.innerHTML=`
-    <div class="loader-inner">
-      <div class="loader-logo">LOGO</div>
-      <div class="loader-bar-wrap"><div class="loader-bar" id="lbar"></div></div>
-      <div class="loader-pct" id="lpct">0%</div>
-    </div>`;
-  loader.style.cssText=`position:fixed;inset:0;background:#080808;z-index:99999;
-    display:flex;align-items:center;justify-content:center;
-    transition:opacity .8s ease,visibility .8s ease;`;
-  const s=document.createElement('style');
-  s.textContent=`
-    .loader-inner{text-align:center;}
-    .loader-logo{font-family:'Bebas Neue',cursive;font-size:3rem;letter-spacing:.1em;
-      color:#ff6200;margin-bottom:2rem;
-      animation:logoPulse 1s ease-in-out infinite;}
-    @keyframes logoPulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.6;transform:scale(.96);}}
-    .loader-bar-wrap{width:200px;height:2px;background:rgba(255,255,255,.06);
-      border-radius:2px;overflow:hidden;margin:0 auto 1rem;}
-    .loader-bar{height:100%;width:0%;background:linear-gradient(90deg,#ff6200,#ff8533);
-      border-radius:2px;transition:width .05s linear;
-      box-shadow:0 0 8px rgba(255,98,0,.6);}
-    .loader-pct{font-family:'JetBrains Mono',monospace;font-size:.7rem;
-      letter-spacing:.1em;color:#555;}
-  `;
-  document.head.appendChild(s);
-  document.body.prepend(loader);
-  document.body.style.overflow='hidden';
-
-  let pct=0;
-  const bar=document.getElementById('lbar');
-  const pctEl=document.getElementById('lpct');
-  const interval=setInterval(()=>{
-    pct+=Math.random()*8+2;
-    if(pct>=100){pct=100;clearInterval(interval);
-      setTimeout(()=>{
-        loader.style.opacity='0';loader.style.visibility='hidden';
-        document.body.style.overflow='';
-      },400);
-    }
-    bar.style.width=pct+'%';
-    pctEl.textContent=Math.floor(pct)+'%';
-  },60);
-})();
+/* PAGE LOADER — removed for direct page load */
 
 /* ══════ TYPEWRITER on hero subtitle ══════ */
 (function(){
