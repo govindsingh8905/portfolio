@@ -309,7 +309,7 @@ document.head.appendChild(style);
 
 /* ══════ TYPEWRITER on hero subtitle ══════ */
 (function(){
-  const roles=['Software Engineer','Full-Stack Developer','ML Enthusiast','Problem Solver'];
+  const roles=['Software Engineer','Full-Stack Developer','Gen AI Explorer','Problem Solver'];
   let ri=0,ci=0,deleting=false;
   const el=document.querySelector('.hero-name');
   if(!el)return;
